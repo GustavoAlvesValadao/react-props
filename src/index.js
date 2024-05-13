@@ -4,8 +4,21 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import Pedido from "./Pedido";
 import Cartao from "./Cartao";
+import Feedback from "./Feedback";
 
 const App = () => {
+  const textoOK = "Já chegou";
+  const textoNOK = "Ainda não chegou";
+  const funcaoOK = () => alert("Agradecemos a confirmação!");
+  const funcaoNOK = () => alert("Verificaremos o ocorrido!");
+  const componenteFeedback = (
+    <Feedback
+      textoOK={textoOK}
+      funcaoOK={funcaoOK}
+      textoNOK={textoNOK}
+      funcaoNOK={funcaoNOK}
+    />
+  );
   return (
     <div className="container border rounded mt-2">
       <div className="row border-bottom m-2">
@@ -19,6 +32,7 @@ const App = () => {
               titulo="SSD"
               descricao="SSD Kingston A400 - SATA"
             />
+            {componenteFeedback}
           </Cartao>
         </div>
       </div>
@@ -30,21 +44,8 @@ const App = () => {
               titulo="Livro"
               descricao="Concrete Mathematics - Donald Knuth"
             />
+            {componenteFeedback}
           </Cartao>
-          <div className="card">
-            <div className="card-header text-muted">20/04/2021</div>
-            <div className="card-body d-flex">
-              <div className="d-flex align-items-center">
-                <i className="fas fa-book fa-2x"></i>
-              </div>
-              <div className="flex-grow-1 ms-2 border">
-                <h4 className="text-center">Livro</h4>
-                <p className="text-center">
-                  Concrete Mathematics - Donald Knuth
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <div className="row">
@@ -55,25 +56,8 @@ const App = () => {
               titulo="Notebook"
               descricao="Notebook Dell - 8 GB - i5"
             />
+            {componenteFeedback}
           </Cartao>
-
-          <div className="card">
-            {/* cabeçalho do cartão */}
-            <div className="card-header text-muted">21/01/2021</div>
-            {/* corpo do cartão */}
-            <div className="card-body d-flex">
-              <div className="d-flex align-items-center">
-                <i className="fas fa-laptop fa-2x"></i>
-              </div>
-              {/* flex-grow 1: tomar espaço remanescente */}
-              <div className="flex-grow-1 ms-2 border">
-                <h4 className="text-center">Notebook</h4>
-                <p className="text-center">Notebook Dell - 8Gb - i5</p>
-                Produção: agosto de 2021 Professor Rodrigo Bossini https:// w
-                ww.rodrigobossini.com.br
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
